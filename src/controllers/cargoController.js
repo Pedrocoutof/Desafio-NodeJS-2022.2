@@ -1,4 +1,3 @@
-import { response } from "express";
 import cargos from "../models/Cargo.js";
 
 class CargoController {
@@ -86,6 +85,8 @@ class CargoController {
             }
         })
     }
+
+   
 }
 
 export default CargoController;
