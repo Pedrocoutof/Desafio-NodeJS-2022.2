@@ -74,7 +74,7 @@ class MembrosController{
         membros.findByIdAndDelete(id, (err) =>{
             if(err){
                 res.status(500).send({
-                    message: "Não foi possivel deletar membro solicitado.",
+                    message: "Não foi possivel deletar membro.",
                     erro: `${err}`
                 })
             }
