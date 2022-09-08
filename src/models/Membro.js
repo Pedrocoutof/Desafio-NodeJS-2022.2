@@ -5,8 +5,8 @@ const membroSchema = new mongoose.Schema({
     email: {type: String},
     senha: {type: String},
     aniversario: {type: Date},
-    departamento: {type: Object},
-    cargo: {type: Object},    
+    departamento: {type: mongoose.Schema.Types.ObjectId, ref: 'departamentos'},
+    cargo: {type: mongoose.Schema.Types.ObjectId, ref: 'cargos'},    
     }
 );
 

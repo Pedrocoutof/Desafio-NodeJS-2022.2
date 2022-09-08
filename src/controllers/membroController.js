@@ -2,7 +2,10 @@ import membros from "../models/Membro.js";
 
 class MembrosController{
     static getMembros = (req, res) => {
-        membros.find((err, membros) => {
+        membros.find()
+        .populate('departamento')
+        .populate('cargo')
+        .exec((err, membros) => {
             res.status(200).json(membros);
           })
     }
@@ -10,7 +13,10 @@ class MembrosController{
     static getMembroID = (req, res) => {
         let id = req.params.id;
 
-        membros.findById(id, (err, membro) =>
+        membros.findById(id)
+        .populate('departamento')
+        .populate('cargo').
+        exec((err, membro) =>
         {
             if(err){
                 res.status(400).send({
@@ -62,7 +68,8 @@ class MembrosController{
            }
            else{
             res.status(200).send({
-                message: "Membro atualizado com sucesso."
+                message: "Membro atualizado com sucesso.",
+                erro: `${err}`
             })
            }
         })
@@ -81,6 +88,7 @@ class MembrosController{
             else{
                 res.status(200).send({
                     message: "Membro deletado com sucesso.",
+                    erro: `${err}`
                 })
             }
         })

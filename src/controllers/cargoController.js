@@ -47,6 +47,7 @@ class CargoController {
             else{
                 res.status(200).send({
                     message: "Cargo atualizado com sucesso.",
+                    erro: `${err}`
                 })
             }
         })
@@ -81,6 +82,7 @@ class CargoController {
             else{
                 res.status(200).send({
                     message: "Cargo deletado com sucesso.",
+                    erro: `${err}`
                 })
             }
         })

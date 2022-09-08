@@ -46,6 +46,7 @@ class DepartamentoController{
             else{
                 res.status(200).send({
                     message: "Departamento atualizado com sucesso.",
+                    erro: `${err}`
                 })
             }
         })
@@ -79,7 +80,8 @@ class DepartamentoController{
             }
             else{
                 res.status(200).send({
-                    message: "Departamento deletado com sucesso"
+                    message: "Departamento deletado com sucesso",
+                    erro: `${err}`
                 })
             }
         })
