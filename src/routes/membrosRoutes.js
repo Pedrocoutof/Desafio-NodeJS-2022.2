@@ -5,6 +5,7 @@ const router = express.Router();
 
 router
     .get('/membros', MembrosController.getMembros)
+    .post('/membros/login', MembrosController.realizaLogin)
     .post('/membros', MembrosController.saveMembro)
     .put('/membros/:id', MembrosController.atualizaMembro)
     .get('/membros/:id', MembrosController.getMembroID)

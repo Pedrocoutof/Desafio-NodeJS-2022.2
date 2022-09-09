@@ -93,6 +93,34 @@ class MembrosController{
             }
         })
     }
+
+    static realizaLogin = (req, res) => {
+        membros
+        .findOne(
+            {
+                'email': req.body.email,
+                'senha': req.body.senha,
+            },
+            (err, _membro) =>
+            {
+                if(err){
+                    res.status(400).send({
+                        message: "Não foi possível efetuar o login.",
+                        erro: `${err}`,
+                    })
+                }
+                if(_membro == null){
+                    res.status(404).send({
+                        message: "Email e/ou senha incorretos.",
+                        erro: `${err}`,
+                    })
+                }
+                else{
+                    res.status(201).send(_membro);
+                }
+            }
+        )
+    }
 }
 
 export default MembrosController;
