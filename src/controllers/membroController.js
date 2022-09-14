@@ -56,9 +56,6 @@ class MembrosController{
     static atualizaMembro = (req, res) =>{
         let id = req.params.id;
 
-        console.log(id);
-        console.log(req.body);
-
         membros.findByIdAndUpdate(id, {$set: req.body}, (err) =>{
            if(err){
                 res.status(500).send({
