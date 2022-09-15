@@ -5,9 +5,9 @@ const router = express.Router();
 
 router
     .get('/cargos', CargoController.getCargos)
-    .post('/cargos', CargoController.saveCargo)
-    .put('/cargos/:id', CargoController.atualizaCargo)
+    .post('/cargos', checkToken, CargoController.saveCargo)
+    .put('/cargos/:id', checkToken,  CargoController.atualizaCargo)
     .get('/cargos/:id', CargoController.getCargoID)
-    .delete('/cargos/:id', CargoController.excluiCargo)
+    .delete('/cargos/:id', checkToken, CargoController.excluiCargo)
 
 export default router;

@@ -7,9 +7,9 @@ const router = express.Router();
 router
     .post('/membros/login', MembrosController.realizaLogin)
     .get('/membros', MembrosController.getMembros)
-    .post('/membros', MembrosController.saveMembro)
-    .put('/membros/:id', MembrosController.atualizaMembro)
-    .get('/membros/:id', MembrosController.getMembroID)
-    .delete('/membros/:id', MembrosController.excluiMembro)
+    .post('/membros', checkToken, MembrosController.saveMembro)
+    .put('/membros/:id', checkToken, MembrosController.atualizaMembro)
+    .get('/membros/:id', checkToken, MembrosController.getMembroID)
+    .delete('/membros/:id', checkToken, MembrosController.excluiMembro)
 
 export default router;
