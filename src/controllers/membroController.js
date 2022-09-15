@@ -1,4 +1,6 @@
 import membros from "../models/Membro.js";
+import jwt from 'jsonwebtoken';
+import { json } from "express";
 
 class MembrosController{
     static getMembros = (req, res) => {
@@ -92,6 +94,7 @@ class MembrosController{
     }
 
     static realizaLogin = (req, res) => {
+        
         membros
         .findOne(
             {
@@ -113,7 +116,25 @@ class MembrosController{
                     })
                 }
                 else{
-                    res.status(201).send(_membro);
+                    const token = jwt.sign(  
+                        {
+                            id: _membro._id,
+                        },
+                        
+                        'CodeVoa',
+                        
+                        /*{
+                            expiresIn: '24h'
+                        },*/
+                        
+                        )
+                        
+                    res.status(201).send(
+                        {
+                            message: "Login efetuado com sucesso.",
+                            token: token
+                        }
+                    );
                 }
             }
         )
