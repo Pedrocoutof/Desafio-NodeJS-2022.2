@@ -1,5 +1,6 @@
 import express  from "express";
 import CargoController from "../controllers/cargoController.js";
+import checkToken from "../middlewares/middlewares.js";
 
 const router = express.Router();
 

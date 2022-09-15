@@ -38,7 +38,6 @@ class MembrosController{
     static saveMembro = (req, res) => {
 
         let novo_membro = new membros(req.body);
-        console.log(req)
 
         novo_membro.save((err) => {
             if(err){
