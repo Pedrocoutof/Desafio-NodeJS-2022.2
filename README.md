@@ -1,5 +1,7 @@
 # Desafio de NodeJS - Code Junior 2022.2
 
+## **Clique [aqui](https://www.getpostman.com/collections/2bb9d610028b3dc202ca) para acessar o postman com as rotas já configuradas**
+
 | **Sumário** |
 |-------------|
 | [Objetivos do repositorio](#objetivos-do-repositorio) |
